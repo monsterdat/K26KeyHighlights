@@ -193,6 +193,30 @@ footer{padding:2rem 0;text-align:center;font-size:0.75rem;color:var(--gray-500);
 .plat-hotspot{position:absolute;cursor:pointer;border-radius:8px;transition:all 0.2s;border:2px solid transparent}
 .plat-hotspot:hover{border-color:rgba(99,223,78,0.8);background:rgba(99,223,78,0.15)}
 .plat-hotspot:hover::after{content:attr(data-label);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#032D42;color:#63DF4E;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap;border:1px solid rgba(99,223,78,0.4);pointer-events:none;font-family:var(--font-sans)}
+
+/* ── KEYNOTE DEMO TILES ── */
+.ktile-sec{border-radius:var(--radius);overflow:hidden;border:1px solid var(--glass-border)}
+.ktile-sec-hdr{background:var(--glass-bg);padding:0.875rem 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--wasabi)}
+.ktile-sec-title{font-size:0.875rem;font-weight:600;color:var(--white)}
+.ktile-sec-sub{font-size:0.75rem;color:var(--gray-400);margin-top:2px;font-weight:300}
+.ktile-sec-ch{font-size:0.75rem;color:var(--wasabi);transition:transform 0.2s}
+.ktile-sec-ch.open{transform:rotate(180deg)}
+.ktile-sec-body{display:none;padding:1rem 1.25rem}
+.ktile-sec-body.open{display:block}
+.ktile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem}
+.ktile{border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;background:var(--glass-bg)}
+.ktile-full{grid-column:1/-1}
+.ktile-top{padding:0.875rem 1rem 0.75rem;flex:1}
+.ktile-co{font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--wasabi);margin-bottom:4px}
+.ktile-title{font-size:0.8125rem;font-weight:600;color:var(--white);line-height:1.35;margin-bottom:0.5rem}
+.ktile-desc{font-size:0.75rem;color:var(--gray-300);line-height:1.5;margin-bottom:0.625rem;font-weight:300}
+.ktile-tags{display:flex;gap:4px;flex-wrap:wrap}
+.ktile-tag{font-size:9px;color:var(--gray-400);padding:1px 6px;border-radius:999px;border:1px solid var(--glass-border);background:rgba(255,255,255,0.04)}
+.ktile-moments{padding:0.625rem 1rem 0.875rem;background:rgba(0,0,0,0.2);border-top:1px solid var(--glass-border)}
+.ktile-moments-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--wasabi);margin-bottom:6px}
+.ktile-moment{font-size:0.6875rem;color:var(--white);padding:3px 0;display:flex;gap:6px;line-height:1.4;border-bottom:1px solid var(--glass-border)}
+.ktile-moment:last-child{border-bottom:none}
+.ktile-moment::before{content:"▸";color:var(--wasabi);flex-shrink:0;font-size:9px;margin-top:3px}
 </style>
 </head>
 <body>
@@ -291,6 +315,135 @@ footer{padding:2rem 0;text-align:center;font-size:0.75rem;color:var(--gray-500);
       <div class="ann-desc">HR AI Specialists handle inquiries, onboarding, and case resolution end to end. HR resolves over 70% of inquiries automatically — freeing people for strategic work.</div>
     </a>
   </div>
+
+  <div class="section-label" style="margin-top:2rem">What was shown at the keynote</div>
+  <div class="ktile-sec">
+    <div class="ktile-sec-hdr" onclick="togKDemos()">
+      <div>
+        <div class="ktile-sec-title">7 live demos · FedEx and CVS</div>
+        <div class="ktile-sec-sub">Tap to expand</div>
+      </div>
+      <span class="ktile-sec-ch" id="kdemos-ch">▾</span>
+    </div>
+    <div class="ktile-sec-body" id="kdemos-b">
+      <div class="ktile-grid">
+
+        <div class="ktile">
+          <div class="ktile-top">
+            <div class="ktile-co">FedEx</div>
+            <div class="ktile-title">FedEx AICT Demo</div>
+            <div class="ktile-desc">A FedEx CFO reviews the ROI of their AI portfolio - 3.6 million hours saved, $250M productivity gain, 70% ROI. A live prompt injection attack on a Pricing Agent then demonstrates how Control Tower detects the threat, issues a kill switch, and auto-generates a P1 incident with a full audit trail.</div>
+            <div class="ktile-tags"><span class="ktile-tag">AI Control Tower</span><span class="ktile-tag">Now Assist</span><span class="ktile-tag">CIO / IT leader</span><span class="ktile-tag">CFO / Finance leader</span><span class="ktile-tag">CISO / Security leader</span></div>
+          </div>
+          <div class="ktile-moments">
+            <div class="ktile-moments-lbl">Key moments</div>
+            <div class="ktile-moment">AI portfolio ROI dashboard - $250M productivity gain, 70% ROI</div>
+            <div class="ktile-moment">Natural language querying of agent performance data</div>
+            <div class="ktile-moment">Live prompt injection on a Pricing Agent</div>
+            <div class="ktile-moment">One-click kill switch with automated P1 incident and stakeholder comms</div>
+          </div>
+        </div>
+
+        <div class="ktile">
+          <div class="ktile-top">
+            <div class="ktile-co">FedEx</div>
+            <div class="ktile-title">FedEx Autonomous Workforce Demo</div>
+            <div class="ktile-desc">An IT Service Desk Manager at FedEx is struggling with a growing incident backlog and poor CSAT. They discover an AI Specialist recommendation on their homepage, review its accuracy scores and projected impact, activate it in a few clicks, then fast-forward to see it handling 52% of all requests autonomously - with a full audit trail of every action taken.</div>
+            <div class="ktile-tags"><span class="ktile-tag">AI Specialists</span><span class="ktile-tag">Now Assist</span><span class="ktile-tag">ServiceNow ITSM</span><span class="ktile-tag">CIO / IT leader</span><span class="ktile-tag">IT operations manager</span></div>
+          </div>
+          <div class="ktile-moments">
+            <div class="ktile-moments-lbl">Key moments</div>
+            <div class="ktile-moment">AI Specialist profile with 85% accuracy and projected 2K incidents offloaded</div>
+            <div class="ktile-moment">One-click activation from the homepage recommendation</div>
+            <div class="ktile-moment">Real-time analytics showing 52% autonomous resolution rate</div>
+            <div class="ktile-moment">Step-by-step audit trail of an autonomously resolved incident</div>
+          </div>
+        </div>
+
+        <div class="ktile">
+          <div class="ktile-top">
+            <div class="ktile-co">FedEx</div>
+            <div class="ktile-title">FedEx EmployeeWorks Demo</div>
+            <div class="ktile-desc">A FedEx Distribution Manager asks Otto one question about Mother's Day readiness. Otto surfaces a 37% staffing gap, generates and submits a hiring requisition, schedules 25 candidate interviews across team calendars, and approves a time-off request - all from a personalised canvas.</div>
+            <div class="ktile-tags"><span class="ktile-tag">EmployeeWorks</span><span class="ktile-tag">Otto (Now Assist)</span><span class="ktile-tag">ServiceNow HR Service Delivery</span><span class="ktile-tag">Operations manager</span><span class="ktile-tag">CIO / IT leader</span></div>
+          </div>
+          <div class="ktile-moments">
+            <div class="ktile-moments-lbl">Key moments</div>
+            <div class="ktile-moment">Natural language surge readiness brief across staffing, supplies, and capacity</div>
+            <div class="ktile-moment">Auto-completed hiring requisition meeting policy requirements</div>
+            <div class="ktile-moment">Calendar Assistant scheduling interviews and debrief sessions autonomously</div>
+            <div class="ktile-moment">Instant time-off approval via Otto</div>
+          </div>
+        </div>
+
+        <div class="ktile">
+          <div class="ktile-top">
+            <div class="ktile-co">CVS</div>
+            <div class="ktile-title">CVS Build Agent + MCP Demo</div>
+            <div class="ktile-desc">A CVS developer uses the Fluent plugin in Claude Code to add pet insurance to an existing Benefits app using natural language - generating metadata, workflows, and eligibility rules automatically. They then build an autonomous enrolment AI Agent in ServiceNow Studio, run automated testing to a 90% readiness score, and deploy to production.</div>
+            <div class="ktile-tags"><span class="ktile-tag">Fluent</span><span class="ktile-tag">ServiceNow Studio</span><span class="ktile-tag">ServiceNow AI Platform</span><span class="ktile-tag">Claude Code integration</span><span class="ktile-tag">Developer / App builder</span></div>
+          </div>
+          <div class="ktile-moments">
+            <div class="ktile-moments-lbl">Key moments</div>
+            <div class="ktile-moment">Natural language prompt generates full app metadata, forms, and eligibility rules</div>
+            <div class="ktile-moment">AI Agent for enrolment built and configured in ServiceNow Studio</div>
+            <div class="ktile-moment">Automated test script generation with 90% readiness score</div>
+            <div class="ktile-moment">Governed release - build anywhere, run on ServiceNow</div>
+          </div>
+        </div>
+
+        <div class="ktile">
+          <div class="ktile-top">
+            <div class="ktile-co">CVS</div>
+            <div class="ktile-title">CVS Context Engine &amp; AI Agent Advisor Demo</div>
+            <div class="ktile-desc">An HR business partner at CVS initiates a lateral transfer with a single sentence to Otto. Four graphs - User, Knowledge, Security, and Decision - handle access deprovisioning, SOX-compliant documentation, security blast radius removal, and proactive learning enrolment. The employee walks in on Monday and everything just works.</div>
+            <div class="ktile-tags"><span class="ktile-tag">Context Engine</span><span class="ktile-tag">Now Assist</span><span class="ktile-tag">ServiceNow HR Service Delivery</span><span class="ktile-tag">ServiceNow SecOps</span><span class="ktile-tag">HR business partner</span></div>
+          </div>
+          <div class="ktile-moments">
+            <div class="ktile-moments-lbl">Key moments</div>
+            <div class="ktile-moment">User Graph mapping current and future access across Workday, ADP, SAP, and SharePoint</div>
+            <div class="ktile-moment">Knowledge Graph surfacing SOX compliance rules and provisioning playbooks</div>
+            <div class="ktile-moment">Security Graph revealing unintended access to executive compensation data</div>
+            <div class="ktile-moment">Decision Graph analysing 23 prior transfers to recommend learning for 50% faster ramp</div>
+          </div>
+        </div>
+
+        <div class="ktile">
+          <div class="ktile-top">
+            <div class="ktile-co">CVS</div>
+            <div class="ktile-title">CVS Autonomous Workforce Demo</div>
+            <div class="ktile-desc">An IT Service Desk Manager at CVS watches as a software access spike threatens to overwhelm the team. The AI Advisor proactively recommends a SAM AI Specialist. Two specialists then work together - the L1 specialist triages and routes, the SAM specialist reclaims idle licences, procures the delta, sends parallel approvals, and notifies all 52 blocked employees. Weeks of work resolved in minutes.</div>
+            <div class="ktile-tags"><span class="ktile-tag">AI Specialists</span><span class="ktile-tag">AI Advisor</span><span class="ktile-tag">ServiceNow ITSM</span><span class="ktile-tag">ServiceNow SAM</span><span class="ktile-tag">CIO / IT leader</span></div>
+          </div>
+          <div class="ktile-moments">
+            <div class="ktile-moments-lbl">Key moments</div>
+            <div class="ktile-moment">AI Advisor proactively surfacing a specialist recommendation during a live access spike</div>
+            <div class="ktile-moment">Configurable specialist behaviour - no prompt rewriting required</div>
+            <div class="ktile-moment">Two specialists handing off context and coordinating decisions autonomously</div>
+            <div class="ktile-moment">52 blocked employees provisioned in minutes</div>
+          </div>
+        </div>
+
+        <div class="ktile ktile-full">
+          <div class="ktile-top">
+            <div class="ktile-co">CVS</div>
+            <div class="ktile-title">CVS AICT &amp; Security Demo</div>
+            <div class="ktile-desc">A security admin in the CVS AI Centre of Excellence notices their AI asset security score has dropped. A benefits agent has gained elevated permissions at risk of leaking PII for millions of members. The demo shows detection, containment, permission removal, and case generation - then uncovers three additional shadow AI agents no one knew existed.</div>
+            <div class="ktile-tags"><span class="ktile-tag">AI Control Tower</span><span class="ktile-tag">ServiceNow SecOps</span><span class="ktile-tag">Varonis integration</span><span class="ktile-tag">Veza integration</span><span class="ktile-tag">CISO / Security leader</span><span class="ktile-tag">CIO / IT leader</span></div>
+          </div>
+          <div class="ktile-moments">
+            <div class="ktile-moments-lbl">Key moments</div>
+            <div class="ktile-moment">AI asset security score drop triggering immediate investigation</div>
+            <div class="ktile-moment">Benefits agent flagged for anomalous privileges and PII exposure risk</div>
+            <div class="ktile-moment">Temporary disable, Veza permission removal, auto-generated exposure record</div>
+            <div class="ktile-moment">Discovery of 3 shadow AI agents brought under continuous governance monitoring</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <div class="disclaimer">This content was generated by AI and is grounded in K26 source documents. Product availability and release status should be verified against official ServiceNow release notes at servicenow.com/docs before use in customer conversations.</div>
 </section>
 
@@ -621,6 +774,13 @@ function tog(id){
   const b=document.getElementById(id+'-b');
   const ch=document.getElementById(id+'-ch');
   const open=b.classList.contains('open');
+  b.classList.toggle('open',!open);
+  ch.classList.toggle('open',!open);
+}
+function togKDemos(){
+  var b=document.getElementById('kdemos-b');
+  var ch=document.getElementById('kdemos-ch');
+  var open=b.classList.contains('open');
   b.classList.toggle('open',!open);
   ch.classList.toggle('open',!open);
 }
